@@ -17,7 +17,18 @@ const selectedSongReducer = (selectedSong = null, action) => {
     return selectedSong;
 };
 
+const counter = (count = 0, action) => {
+    if (action.type === "INCREMENT") {
+        return ++count;
+    }
+    if (action.type === "DECREMENT") {
+        return --count;
+    }
+    return count;
+};
+
 export default combineReducers({
     songs: songsReducer,
-    selectedSong: selectedSongReducer
+    selectedSong: selectedSongReducer,
+    counter: counter
 });
